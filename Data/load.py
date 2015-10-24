@@ -59,6 +59,6 @@ if __name__ == '__main__':
     remove_data = sys.argv[2]  #if true, then remove existing data
     num_data = sys.argv[3]     #number of data points (ie. no. of lines of data)
 
-    if remove_data:
+    if remove_data=="T":
         l.removeData()
     l.load(data_file,num_data.lower())

@@ -13,11 +13,35 @@ myApp.controller('locsCtrl', function($scope,locFactory){
   	showChart($scope.locs);
 	});
 
+	//Checkbox query
+	 $scope.checkboxModel = {
+    value1 : true,
+    value2 : true,
+    value3 : true,
+    value4 : true,
+    value5 : true,
+    value6 : true,
+    value7 : true,
+    value8 : true
+  };
+
+  $scope.checkboxQuery = {
+  	
+  }
+
+// 	$scope.editUser = function(){
+// 		userFactory.editUser($scope.changeUser,$routeParams.userId,function(data){
+// 			$scope.user = data;
+// 		});
+// 		$scope.changeUser = {};
+// 	}
+
+
 	//main function for creating the chart
 	function showChart(data_locs){
 		//split data into bus and walk modes
 		for (var i=0; i<$scope.locs.length; i++){
-			if ($scope.locs[i]['transport']=='walk'){
+			if ($scope.locs[i]['transport']=='NA'){
 				$scope.walk_x.push($scope.locs[i]['longitude']);
 				$scope.walk.push($scope.locs[i]['latitude']);
 			}

@@ -5,6 +5,7 @@ myApp.factory('locFactory',function($http){
 	factory.getLocs = function(callback){
 		$http.get('/getlocs').success(function(output){
 			locs = output;
+			// console.log(locs)
 			callback(locs);
 		});
 	}
