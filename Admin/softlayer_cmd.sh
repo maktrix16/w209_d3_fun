@@ -24,28 +24,15 @@ http://www.softlayer.com/data-centers
 
 curl 'https://<username>:<api_key>@api.softlayer.com/rest/v3.1/SoftLayer_Product_Order/placeOrder' --data @- | jq -r '.placedOrder.items[] | select(.itemId == 4069) | {id}'
 
-
-Pr5jqzlQ
-
-
-###########
-Amir
-Access Key ID: AKIAJMVD2RIMYJFXXRZQ
-Secret Access Key: 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
-
-Tuhin 
-Key ID: AKIAJUCGQBR7ZKPFJBRA
-Secret Access Key: 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
-
-Arthur_209
-Access Key ID: AKIAJHPI47HFRSCIZIBQ
-Secret Access Key: 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
+=========
 
 aws s3 cp data_csv.zip s3://w209-d3/data_csv.zip
 
 
 aws s3 cp test.txt s3://w209-d3/test.txt
 
+
+aws --region us-east-1 s3 cp data_csv.zip s3://w209-d3/data_csv.zip
 
 {
 "Version": "2015-10-23",

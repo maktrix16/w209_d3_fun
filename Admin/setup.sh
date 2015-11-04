@@ -75,8 +75,8 @@ echo 'export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64/jre"' >> ~/.bashrc
 echo 'export PATH=$JAVA_HOME/bin:$PATH' >> ~/.bashrc
 echo 'export EC2_HOME=/usr/local/ec2/ec2-api-tools-1.7.5.1' >> ~/.bashrc
 echo 'export PATH=$PATH:$EC2_HOME/bin' >> ~/.bashrc
-echo 'export AWS_ACCESS_KEY=AKIAJHPI47HFRSCIZIBQ' >> ~/.bashrc
-echo 'export AWS_SECRET_KEY=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' >> ~/.bashrc
+echo 'export AWS_ACCESS_KEY=XXX' >> ~/.bashrc
+echo 'export AWS_SECRET_KEY=XXX' >> ~/.bashrc
 source ~/.bashrc
 apt-get install awscli
 
@@ -86,11 +86,14 @@ aws --region us-east-1 s3 cp s3://w209-d3/data_csv.zip data_csv.zip
 unzip data_csv.zip
 sudo pip install pytz
 
+# vi /var/log/nginx/error.log
+# sudo apt-get install php5-fpm
+# https://www.terlici.com/2015/02/05/hosting-deploying-nodejs.html
 
-
+# run node, configure nginx and run it
+cd ~/w209_d3_fun/Admin/
 sudo start node-app
-# configure nginx and run it
-sudo cp node-app /etc/nginx/sites-available/
+sudo cp ~/w209_d3_fun/Admin/node-app /etc/nginx/sites-available/
 sudo rm /etc/nginx/sites-enabled/default
 sudo ln -s /etc/nginx/sites-available/node-app /etc/nginx/sites-enabled/node-app
 sudo /etc/init.d/nginx restart

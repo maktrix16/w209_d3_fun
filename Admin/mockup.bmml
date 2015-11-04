@@ -7,7 +7,6 @@
     </control>
     <control controlID="1" controlTypeID="com.balsamiq.mockups::Image" x="542" y="168" w="400" h="400" measuredW="390" measuredH="335" zOrder="1" locked="false" isInGroup="-1">
       <controlProperties>
-        <filter>true</filter>
         <src>./User%2520Guide-1.2.pdf%2520%28page%25201%2520of%25204%29-2.jpg</src>
       </controlProperties>
     </control>
