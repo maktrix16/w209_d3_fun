@@ -7,10 +7,11 @@ var locs = {}
 
 // methods to handle Ajax requests
 locs.getLocs = function(req,res){
-	Loc.find({},function(err,data){
+	Loc.find({}).limit(10000).exec(function(err,data){
 		if(err){
 			res.send('something went wrong!');
 		}	else {
+      // console.log(data)
 			res.json(data);
 			// res.send(JSON.stringify(data));
 		}

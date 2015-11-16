@@ -17,9 +17,16 @@ class LoadData():
     def removeData(self):
         self.collection.remove({})
     
-    def load(self,data_file):
+    def load(self,data_file, num_data):
+        #set limit on number of lines of data
+        if num_data=="all": limit=1e15
+        else: limit=int(num_data)
+        count=0
+
         with open(data_file, 'r') as f:
             for line in f:
+                if count>=limit: break
+                
                 user_id,latitude,longitude,altitude,date,time,transport = line.strip().split(',')
                 user_id = int(user_id)
                 latidude = float(latitude)
@@ -41,13 +48,17 @@ class LoadData():
                             "transport":transport,
                             "created_at":datetime.datetime.utcnow()}
                 self.collection.insert_one(location)
+            
+                count+=1
 
             print '\n',self.collection.count(),'records loaded into MongoDB'
     
 if __name__ == '__main__':
     l = LoadData()
-    data_file = sys.argv[1]
+    data_file = sys.argv[1]    #name of data file
     remove_data = sys.argv[2]  #if true, then remove existing data
-    if remove_data:
+    num_data = sys.argv[3]     #number of data points (ie. no. of lines of data)
+
+    if remove_data=="T":
         l.removeData()
-    l.load(data_file)
+    l.load(data_file,num_data.lower())

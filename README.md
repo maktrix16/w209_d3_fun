@@ -29,15 +29,37 @@ mongo
 ####Enter these commands to see if data exists properly
 ```
 use w209project
-db.locations.count()   #this should return value of 10
-db.locations.find({}).pretty()   #this should return all the values being stored
+db.getCollectionNames()  #this return the list of colletions (there should only be "locs" colletion there)
+db.locs.count()   #this should return value of number of counts
+db.locs.find({}).pretty()   #this should return all the values being stored
 ```
 
 ####Once confirm data ok, go to new terminal window and start Node server (note: you must do have already started your MongoDB server at this point)
 ```
-nodemon website/server.js
+nodemon Website/server.js
 ```
 ####Open web browser and go to following link to view website
 http://localhost:8000/
 
-
+####Loading data into database
+Go to "Data" folder (https://github.com/maktrix16/w209_d3_fun/tree/master/Data)
+Add the data in a text file in the format of:
+```
+user_id, latitude, longitude, altitude, local_date, local_time, transport_mode
+```
+Here's a few examples:
+```
+9,42.97456,119.332025,492,2008-08-20,12:09:04,walk
+9,39.974658,106.332114,492,2008-08-20,12:09:07,bus
+18,39.974893,136.331959,467,2008-08-20,12:10:35,NA
+18,39.974903,126.331965,466,2008-08-20,12:10:37,subway
+18,31.97492,136.331962,466,2008-08-20,12:10:39,subway
+```
+Then, wihtin the "Data" folder, run: 
+```
+python load.py test_data.txt T all
+```
+Please note that "load.py" takes in 3 arguments:
+- 1st Argument: filename of the data text file to be loaded (eg. test_data.txt) 
+- 2nd Argument: whether wiping original data in database ("T" or "F")
+- 3rd Argument: how many data points or lines of data to be input from textfile (either type "all" for all data within text file or specifiy an integer like "30")

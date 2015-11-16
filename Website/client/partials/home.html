@@ -1,5 +1,61 @@
 <div>
 	<div class="container-fluid" id="main-container">
+
+		<div class='row'>
+			<h1>What is it like to travel 1,251,654km (780k miles) ? </h2>
+			<div class='col-sm-4'>
+				<h2>Transportation Mode</h3>
+				
+<!-- https://docs.angularjs.org/api/ng/input/input%5Bcheckbox%5D -->
+<!-- https://docs.angularjs.org/api/ng/directive/ngChecked -->
+<!-- http://stackoverflow.com/questions/18429477/angular-filtering-with-checkboxes -->
+<!-- http://jsfiddle.net/TheSharpieOne/y2UW7/1/ -->
+<!-- http://stackoverflow.com/questions/12482455/querying-on-10-million-mongodb-documents -->
+
+				<form name="myForm">
+				  <label>
+				    <input type="checkbox" ng-model="checkboxModel.value1">
+				    All
+				  </label><br/>
+				  <label>
+				    <input type="checkbox" ng-model="checkboxModel.value2">
+				    Car
+				  </label><br/>
+				  <label>
+				    <input type="checkbox" ng-model="checkboxModel.value3">
+				    Cycling
+				  </label><br/>
+				  <label>
+				    <input type="checkbox" ng-model="checkboxModel.value4">
+				    Motorcycle
+				  </label><br/>
+				  <label>
+				    <input type="checkbox" ng-model="checkboxModel.value5">
+				    Subway
+				  </label><br/>
+				  <label>
+				    <input type="checkbox" ng-model="checkboxModel.value6">
+				    Train
+				  </label><br/>
+				  <label>
+				    <input type="checkbox" ng-model="checkboxModel.value7">
+				    Walking
+				  </label><br/>
+				  <label>
+				    <input type="checkbox" ng-model="checkboxModel.value8">
+				    Unknown
+				  </label><br/>
+
+				  <tt>value1 = {{checkboxModel.value1}}</tt><br/>
+				  <tt>value2 = {{checkboxModel.value2}}</tt><br/>
+				  <tt>value3 = {{checkboxModel.value3}}</tt><br/>
+				 </form>
+
+			</div>
+
+			<div class='col-sm-8'><img id='demo-image' src="./img/map_demo.jpg"></img></div>
+		</div>
+
 		<div class='row'> 
 			<h2>Quick demo to show our data infrastructure + d3 setup is functional</h2>
 			<div id="test-chart1"></div>
