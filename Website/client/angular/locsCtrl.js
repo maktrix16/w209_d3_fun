@@ -1,6 +1,16 @@
 myApp.controller('locsCtrl', function($scope,locFactory){
 	$scope.locs = [];
 
+	//mode
+	$scope.mode = "dynamic";
+
+	// set mode after button click
+	$scope.setMode = function(mode){
+		$scope.mode = mode;
+		// console.log($scope.nlp_mode);
+	}
+
+
 	//chart variables
 	$scope.bus_x=["bus_x"];
 	$scope.bus=["bus"];

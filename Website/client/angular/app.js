@@ -1,7 +1,6 @@
 //Setting up the angular app (module)
 // var myApp = angular.module('myApp',[]);
-var myApp = angular.module('myApp',['ngRoute']);
-
+var myApp = angular.module('myApp',['ngRoute','ui.bootstrap']);
 //partial code goes in here:
 // config method to setup routing
 myApp.config(function($routeProvider,$locationProvider){

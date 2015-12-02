@@ -1,14 +1,97 @@
 /* Overall */
+
+/*requred for angular-ui (https://angular-ui .github.io/bootstrap/)*/
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
 #main-container{
   margin: 20px;
 }
 
-#demo-image{
+#traffic-flow-img{
   height:600px; width:600px;
   margin-top:20px;
 }
 
+#select-mode h3, #select-mode button, #select-mode p {
+  display: inline-block;
+}
+#select-mode h3 {
+  margin-right: 15px;
+}
+#select-mode button {
+  margin-top: -6px;
+}
+#select-mode p{
+  margin-left: 15px;
+  padding-bottom: 10px;
+}
+
 label {font-size: 20px; margin-top: 5px}
+
+.dropdown{
+  display: inline;
+  margin-left: 50px;
+}
+
+#traffic-flow-right p{
+  font-size: 18px;
+  margin: 20px 0px;
+}
+
+.num-ppl{
+  font-weight: bold;
+  font-size: 24px;
+}
+
+#traffic-flow-right div p, .transport-icon{
+  display: inline-block;
+}
+
+.legend-line-1{
+  color: red;
+}
+.legend-line-2{
+  color: green;
+}
+.legend-line-3{
+  color: blue;
+}
+.legend-line-4{
+  color: purple;
+}
+.legend-line-5{
+  color: orange;
+}
+.legend-line-6{
+  color: gray;
+}
+.legend-line-7{
+  color: black;
+}
+.legend-line-8{
+  color: black;
+}
+.legend-line-9{
+  color: black;
+}
+
+.transport-icon{
+  width:25px;
+  height: 25px;
+}
+
+.legend-transport{
+  width: 100px;
+}
+
+#traffic-flow-right div p{
+  font-size: 15px;
+  margin-left: 10px;
+}
+
+#traffic-flow-right div{
+  height: 40px
+}
 
 /*
 .add-btn{

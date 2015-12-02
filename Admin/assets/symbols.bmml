@@ -1,0 +1,36 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="764" measuredH="216" mockupW="704" mockupH="196">
+  <controls>
+    <control controlID="0" controlTypeID="__group__" x="60" y="20" w="704" h="196" measuredW="704" measuredH="196" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <controlName>Header</controlName>
+      </controlProperties>
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::Label" x="5" y="0" w="-1" h="-1" measuredW="304" measuredH="40" zOrder="0" locked="false" isInGroup="0">
+          <controlProperties>
+            <size>32</size>
+            <text>Traffic%20Flow%20Analyzer</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::TextArea" x="0" y="47" w="704" h="115" measuredW="200" measuredH="140" zOrder="1" locked="false" isInGroup="0">
+          <controlProperties>
+            <borderColor>16777215</borderColor>
+            <text>This%20is%20a%20traffic%20flow%20analyzer%20that%20studies%20and%20visualizes%20motion%20of%20181%20individuals%20from%202007%20to%202011.%20We%20hope%20our%20analysis%20can%20provide%20insights%20for%20policy%20makers%20and%20urban%20planners%2C%20as%20well%20as%20inspiring%20additional%20research%20using%20geolocation%20data.%20%0A%20%0AOur%20analyzer%20has%20two%20modes.%20The%20%22Dynamic%22%20mode%20explores%20traffic%20flow%20over%20time.%20The%20%22Static%22%20mode%20provides%20summary%20analysis%20from%20an%20aggregate%20point%20of%20view.</text>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::Label" x="5" y="170" w="-1" h="-1" measuredW="135" measuredH="26" zOrder="2" locked="false" isInGroup="0">
+          <controlProperties>
+            <bold>true</bold>
+            <size>18</size>
+            <text>Selected%20Mode%3A</text>
+          </controlProperties>
+        </control>
+        <control controlID="3" controlTypeID="com.balsamiq.mockups::Label" x="319" y="172" w="-1" h="-1" measuredW="116" measuredH="24" zOrder="3" locked="false" isInGroup="0">
+          <controlProperties>
+            <size>16</size>
+            <text>%28Click%20to%20select%29</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+  </controls>
+</mockup>

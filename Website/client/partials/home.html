@@ -1,9 +1,138 @@
 <div>
 	<div class="container-fluid" id="main-container">
+		<!-- Header  -->
+		<div class='row'>
+			<div class='col-sm-12'>
+				<h1 >Traffic Flow Analysis</h1>
+				<p>This is a traffic flow analyzer that studies and visualizes motion of 181 individuals from 2007 to 2011. We hope our analysis can provide insights for policy makers and urban planners, as well as inspiring additional research using geolocation data. <p>
+				<p>
+	 			Our analyzer has two modes. The "Dynamic" mode explores traffic flow over time. The "Static" mode provides summary analysis from an aggregate point of view.</p>	
+				<div id='select-mode'>
+		 			<h3>Select Mode of Analysis: </h3> 
+		 			<button type="submit" ng-class="{'btn btn-success':mode=='dynamic','btn btn-default':mode=='static'}" ng-click='setMode("dynamic")'>Dynamic</button>
+		 			<button type="submit" ng-class="{'btn btn-default':mode=='dynamic','btn btn-success':mode=='static'}" ng-click='setMode("static")'>Static</button>	
+		 			<p>(Please click to select)</p>
+				</div>
+			</div>
+		</div> <!-- end of Header -->
 
 		<div class='row'>
-			<h1>What is it like to travel 1,251,654km (780k miles) ? </h2>
+			<hr>
+			<h3 class='col-sm-12'>How do 181 individuals travel over a million km over time? </h3>
+			<!-- Traffic flow left-half -->
+			<div class='col-sm-7'>
+				<img id='traffic-flow-img' src="./img/map_demo.jpg">
+				<p>Progress_Bar</p>
+				<uib-progressbar value="55"></uib-progressbar>
+				<div>
+					<button type="button" class="btn btn-default" aria-label="Left Align">
+					  <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>
+					</button>
+
+					<button type="button" class="btn btn-default" aria-label="Left Align">
+					  <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
+					</button>
+
+					<div class='dropdown'>
+					  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					    Step by 1 hour
+					    <span class="caret"></span>
+					  </button>
+					  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+					    <li><a href="#">Step by 1 hour</a></li>
+					    <li><a href="#">Step by 1 day</a></li>
+					    <li><a href="#">Step by 1 week</a></li>
+					    <li><a href="#">Step by 1 month</a></li>
+					    <li><a href="#">Step by 1 year</a></li>
+					  </ul>
+					</div>
+
+					<button type="button" class="btn btn-default" aria-label="Left Align">
+					  <span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span>
+					</button>
+
+					<button type="button" class="btn btn-default" aria-label="Left Align">
+					  <span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span>
+					</button>
+				</div>
+			</div> <!-- End of traffic flow left-half-->
+			<!-- Traffic flow right-half -->
+			<div id='traffic-flow-right' class='col-sm-5'>
+				<h2>2015-01-05 (Sun)</h2>
+				<h4>11:20pm EST</h4>
+				<p>Current No. of People Tracked: <span class='num-ppl'>61</span></p>
+				<p>Travel Modes of These People:</p>
+				<div>
+					<p class='legend-line legend-line-1'>______</p>
+					<img class='transport-icon' src="./img/car.png">
+					<p class='legend-transport'>(Bike)</p>
+					<p class='legend-trans-ppl'>x 19</p>
+				</div>
+				<div>
+					<p class='legend-line-2'>______</p>
+					<img class='transport-icon' src="./img/car.png">
+					<p class='legend-transport'>(Bus)</p>
+					<p class='legend-trans-ppl'>x 19</p>
+				</div>
+				<div>
+					<p class='legend-line-3'>______</p>
+					<img class='transport-icon' src="./img/car.png">
+					<p class='legend-transport'>(Car)</p>
+					<p class='legend-trans-ppl'>x 19</p>
+				</div>
+				<div>
+					<p class='legend-line-4'>______</p>
+					<img class='transport-icon' src="./img/car.png">
+					<p class='legend-transport'>(Motorcycle)</p>
+					<p class='legend-trans-ppl'>x 19</p>
+				</div>
+				<div>
+					<p class='legend-line-5'>______</p>
+					<img class='transport-icon' src="./img/car.png">
+					<p class='legend-transport'>(Plane)</p>
+					<p class='legend-trans-ppl'>x 19</p>
+				</div>
+				<div>
+					<p class='legend-line-6'>______</p>
+					<img class='transport-icon' src="./img/car.png">
+					<p class='legend-transport'>(Subway)</p>
+					<p class='legend-trans-ppl'>x 19</p>
+				</div>
+				<div>
+					<p class='legend-line-7'>______</p>
+					<img class='transport-icon' src="./img/car.png">
+					<p class='legend-transport'>(Taxi)</p>
+					<p class='legend-trans-ppl'>x 19</p>
+				</div>
+				<div>
+					<p class='legend-line-8'>______</p>
+					<img class='transport-icon' src="./img/car.png">
+					<p class='legend-transport'>(Train)</p>
+					<p class='legend-trans-ppl'>x 19</p>
+				</div>
+				<div>
+					<p class='legend-line-9'>______</p>
+					<img class='transport-icon' src="./img/car.png">
+					<p class='legend-transport'>(Unknown)</p>
+					<p class='legend-trans-ppl'>x 19</p>
+				</div>
+
+			</div>
+
+<!-- {"transports": {"NA": 1}, "users": [{"163": [39.979080862000004, 116.30357232, "NA"]}], "dists": {"taxi": 4196.7528788593245, "bike": 6206.0872232700949, "all": 1077684.6915958354, "run": 5.6461644826862152, "car": 23786.268086502747, "bus": 18039.157069225312, "walk": 6040.368052526931, "train": 29149.117909132881, "motorcycle": 4.303923491750826, "NA": 972309.43260966358, "airplane": 11447.165041356469, "boat": 146.78578788456349, "subway": 6353.6068494493229}} -->
+
+		</div>
+		
+
+
+
+
+
+
+
+		<div class='row'>
 			<div class='col-sm-4'>
+
 				<h2>Transportation Mode</h3>
 				
 <!-- https://docs.angularjs.org/api/ng/input/input%5Bcheckbox%5D -->
@@ -53,7 +182,7 @@
 
 			</div>
 
-			<div class='col-sm-8'><img id='demo-image' src="./img/map_demo.jpg"></img></div>
+
 		</div>
 
 		<div class='row'> 
