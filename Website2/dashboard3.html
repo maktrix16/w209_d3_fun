@@ -5,8 +5,12 @@
 		<link rel="stylesheet" href="libs/bootstrap-3.3.6-dist/css/bootstrap.min.css">
 		<script src="libs/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js/jquery.sparkline.min.js"></script>
+    <script type="text/javascript" src="libs/highcharts/highcharts.js"></script>
+    <script type="text/javascript" src="libs/highcharts/modules/exporting.js"></script>
+<!-- 
 		<script src="https://code.highcharts.com/highcharts.js"></script>
 		<script src="https://code.highcharts.com/modules/exporting.js"></script>
+     -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <!-- 	  
 		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
@@ -45,7 +49,7 @@
         height:15px;
       }
 
-			#leaflet-map { height: 350px; width:500px;}
+			#leaflet-map { height: 350px; width:500px;margin-bottom: 50px;}
 
 		</style>
 
@@ -119,10 +123,7 @@
 			</div>
 
 			<!-- LEAFLET GRAPHIC --> 
-			<div class='row'>
-				<div class='col-md-6' id='leaflet-map'></div>
-				<div id='leaflet-map'></div>
-			</div>
+			<div class='row'><div class='col-md-6' id='leaflet-map'></div></div>
 
 		</div>
 	</body>
@@ -130,6 +131,11 @@
 
 <!-- all data stored in js file -->
 <script type="text/javascript" src="js/data.js"></script>  
+
+<!-- all transport modes (needed by both leaflet and main code) -->
+<script type="text/javascript">
+  var modes = ['walk', 'bike', 'car', 'taxi', 'bus', 'subway'];
+</script>
 
 <!-- leaflet map section-->
 <script type="text/javascript" src='js/leaflet-code.js'></script>
