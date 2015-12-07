@@ -3,7 +3,8 @@
 
 var modes = ['walk', 'bike', 'car', 'taxi', 'bus', 'subway', 'all']; 
 
-var seasons = ['2008-2', '2008-3', '2008-4', '2009-1', '2009-2', '2009-3'];
+// var seasons = ['2008-2', '2008-3', '2008-4', '2009-1', '2009-2', '2009-3'];
+var seasons = ['2009-1', '2009-2', '2009-3', '2008-4'];
 var mode_colors = {'walk': '#fbb4ae', 'bike': '#b3cde3', 'car': '#ccebc5', 'taxi': '#decbe4', 'bus': '#fed9a6', 'subway': '#ffffcc'};
 var season_index = 0;
 display();
@@ -18,8 +19,8 @@ function capitalize(string) {
 }
 
 function next() {
-  if (season_index >= 4) {
-    season_index = 5;
+  if (season_index >= 2) {
+    season_index = 3;
     $("#btn_fwd").prop('disabled', true);
   }
   else{
@@ -54,9 +55,9 @@ function back() {
 }
 
 function update() {
-  season_index = parseInt($('#dropdown1').val());
-
-  if (season_index >= 5) {
+  season_index = parseInt($('input[name="dropdown1"]:checked').val());
+  
+  if (season_index >= 3) {
     $("#btn_fwd").prop('disabled', true);
     $("#btn_back").prop('disabled', false);
   }
@@ -79,7 +80,12 @@ function update() {
 
 function display() {
   $('#tbl tbody').html('');
-  $("#dropdown1").val(season_index.toString());
+  // $("#dropdown1").val();
+  $("input[name='dropdown1']").parent('.btn').removeClass('active');
+  $("input[name='dropdown1'][value=" + season_index.toString() + "]").parent('.btn').addClass('active');
+
+   //.attr('checked', '');
+
   var season = seasons[season_index];
   paths_count = 0
   for (var mode in data[season]) {
@@ -93,7 +99,7 @@ function display() {
     data_ = data[season][mode];
     avg_dist = (data_['distance'] / data_['paths'] / 1000.).toFixed(1) + '<span style="color:gray;font-size:x-small"> km</span>';
     avg_dur = (data_['duration'] / data_['paths']).toFixed(1) + '<span style="color:gray;font-size:x-small"> min</span>';
-    path_pct = data_['paths'] / paths_count;
+    path_pct = data_['paths']; // / paths_count;
     hourly = data_['hourly'].join();
     // }
     // else{
@@ -109,7 +115,7 @@ function display() {
       // html = '<tr><td> <i class="fa fa-circle" style="color:' + mode_colors[mode] + '"></i> ' + capitalize(mode) + '</td>';
       // arthur changes END
 
-      html += '<td><span style="font-size: x-small" data-toggle="tooltip" title="' + (100 * path_pct).toFixed(0) + '% of paths">' + data_['paths'] + '</span><div class="chart"><div style="width: ' + (250 * path_pct).toFixed(0) + 'px"></div></div></td>';
+      html += '<td><span style="font-size: x-small" data-toggle="tooltip" title="' + (path_pct).toFixed(0) + '% of paths">' + data_['paths'] + '</span><div class="chart"><div style="width: ' + (.3 * path_pct).toFixed(0) + 'px"></div></div></td>';
       html += '<td style="text-align:right"><span data-toggle="tooltip" title="Total: ' + (data_['distance'] / 1000).toFixed(0) + ' km">' + avg_dist + '</span></td>';
       html += '<td style="text-align:right"><span data-toggle="tooltip" title="Total: ' + (data_['duration']).toFixed(0) + ' mins">' + avg_dur + '</span></td><td><span id="sparkline' + i + '"></span></td></tr>';
       $("#tbl tbody").append(html);

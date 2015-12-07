@@ -96,15 +96,31 @@
  -->
 					<table style='width:100%'>
 						<tr>
-							<td style="width:45%; text-align:right">
-								<select onchange="update()" id="dropdown1">
+							<td style="width:55%; text-align:right">
+								<div class="btn-group" data-toggle="buttons" onchange="update()">
+									<label class="btn btn-default">
+										<input type="radio" name="dropdown1" value="-1" /> All
+									</label>
+									<label class="btn btn-default">
+										<input type="radio" name="dropdown1" value="0" /> Spring
+									</label>
+									<label class="btn btn-default">
+										<input type="radio" name="dropdown1" value="1" /> Summer
+									</label>
+									<label class="btn btn-default">
+										<input type="radio" name="dropdown1" value="2" /> Fall
+									</label>
+									<label class="btn btn-default">
+										<input type="radio" name="dropdown1" value="3" /> Winter
+									</label>
+								</div>
+
+								<!-- <select onchange="update()" id="dropdown1">
 								  <option value="0">2008-Season 2</option>
 								  <option value="1">2008-Season 3</option>
 								  <option value="2">2008-Season 4</option>
 								  <option value="3">2009-Season 1</option>
-								  <option value="4">2009-Season 2</option>
-								  <option value="5">2009-Season 3</option>
-								</select>
+								</select> -->
 							</td>
 							<td style="width:10%"></td>
 							<td style="width:45%">
