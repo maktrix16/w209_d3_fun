@@ -87,8 +87,13 @@
 
 			<div class="row">
 				<div class="col-md-6 text-center">
-					<div id="map" style="width:500px; height:350px"></div>
 
+        <!-- LEAFLET GRAPHIC --> 
+        <div class='row'><div class='col-md-6' id='leaflet-map'></div></div>
+
+<!-- 
+					<div id="map" style="width:500px; height:350px"></div>
+ -->
 					<table style='width:100%'>
 						<tr>
 							<td style="width:45%; text-align:right">
@@ -130,9 +135,6 @@
 				</div>
 			</div>
 
-			<!-- LEAFLET GRAPHIC --> 
-			<div class='row'><div class='col-md-6' id='leaflet-map'></div></div>
-
 		</div>
 	</body>
 </html>
@@ -142,7 +144,7 @@
 
 <!-- all transport modes (needed by both leaflet and main code) -->
 <script type="text/javascript">
-  var modes = ['walk', 'bike', 'car', 'taxi', 'bus', 'subway'];
+  var modes = ['walk', 'bike', 'car', 'taxi', 'bus', 'subway','all'];
 </script>
 
 <!-- leaflet map section-->

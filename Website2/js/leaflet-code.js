@@ -9,14 +9,14 @@ var overlayMaps={};
 $('#tbl').on({
   mouseenter: function(){
     for (i in modes){
-      if (modes[i]!=this.id){
+      if (modes[i]!=this.id && modes[i]!='all'){
         map.removeLayer(overlayMaps[modes[i]]);
       }
     }
   },
   mouseleave: function(){
     for (i in modes){
-      if (modes[i]!=this.id){
+      if (modes[i]!=this.id && modes[i]!='all'){
         map.addLayer(overlayMaps[modes[i]]);
       }
     }
@@ -33,7 +33,7 @@ function create_map (data, new_map, transports){
   //remove exsiting data if only updating map (not creating new map)
   if (!new_map){
     for (i in modes){
-      if (modes[i]!=this.id){
+      if (modes[i]!=this.id && modes[i]!='all'){
         map.removeLayer(overlayMaps[modes[i]]);
       }
     }
@@ -46,27 +46,30 @@ function create_map (data, new_map, transports){
     mode_transport = data[i].name
     var paths = [];  //for storing the array of polylines
 
-    //http://stackoverflow.com/questions/24658596/hide-show-layergroups-in-leaflet-with-own-buttons
-    if ($.inArray(mode_transport, transports)> -1){
-      var pointList = [];
+    for (j in dataXY){
 
-      for (j in dataXY){
-        var x = dataXY[j][0];
-        var y = dataXY[j][1];
-        // console.log(x);
-        // console.log(y);
-        pointList.push(L.latLng(x,y));
+      //http://stackoverflow.com/questions/24658596/hide-show-layergroups-in-leaflet-with-own-buttons
+      if ($.inArray(mode_transport, transports)> -1){
+        var pointList = [];
+
+        for (k in dataXY[j]){
+          var x = dataXY[j][k][0];
+          var y = dataXY[j][k][1];
+          // console.log(x);
+          // console.log(y);
+          pointList.push(L.latLng(x,y));
+        }
+
+        path = L.polyline(pointList, {
+          // color: 'blue',
+          color: data[i].color,
+          weight: 2,
+          opacity: 1,
+          smoothFactor: 1
+        });
+
+        paths.push(path);
       }
-
-      path = L.polyline(pointList, {
-        // color: 'blue',
-        color: data[i].color,
-        weight: 1,
-        opacity: 0.5,
-        smoothFactor: 1
-      });
-
-      paths.push(path);
     }
 
     //add layer for each transport mode
