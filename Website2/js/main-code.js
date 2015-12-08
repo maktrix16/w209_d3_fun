@@ -4,15 +4,15 @@
 var modes = ['walk', 'bike', 'car', 'taxi', 'bus', 'subway', 'all']; 
 
 // var seasons = ['2008-2', '2008-3', '2008-4', '2009-1', '2009-2', '2009-3'];
-var seasons = ['2009-2', '2009-3', '2008-4', '2009-1'];
+var seasons = ['all','2009-2', '2009-3', '2008-4', '2009-1'];
 var mode_colors = {'walk': '#fbb4ae', 'bike': '#b3cde3', 'car': '#ccebc5', 'taxi': '#decbe4', 'bus': '#fed9a6', 'subway': '#ffffcc'};
-var season_index = 0;
+var season_index = 0; //start at the all option
 display();
 // plot_xy(data_xy[seasons[season_index]]);  //REMOVE LATER
 
 
 // create_map(data_xy[seasons[season_index]]);
-create_map(data_xy2[seasons[season_index]], true, modes);
+create_map(data_xy2[seasons[season_index]], true, true, modes);
 
 function capitalize(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -32,7 +32,7 @@ function next() {
   // plot_xy(data_xy[seasons[season_index]]); //REMOVE LATER
 
 // create_map(data_xy[seasons[season_index]]);
-  create_map(data_xy2[seasons[season_index]], false, modes);
+  create_map(data_xy2[seasons[season_index]], false, false, modes);
 
 }
 
@@ -50,7 +50,7 @@ function back() {
   // plot_xy(data_xy[seasons[season_index]]); //REMOVE LATER
 
 // create_map(data_xy[seasons[season_index]]);
-  create_map(data_xy2[seasons[season_index]], false, modes);
+  create_map(data_xy2[seasons[season_index]], false, false, modes);
 
 }
 
@@ -74,7 +74,7 @@ function update() {
   // plot_xy(data_xy[seasons[season_index]]); //REMOVE LATER
 
 // create_map(data_xy[seasons[season_index]]);
-  create_map(data_xy2[seasons[season_index]], false, modes);
+  create_map(data_xy2[seasons[season_index]], false, false, modes);
 
 }
 
@@ -96,6 +96,7 @@ function display() {
 
   for (var i in modes) {
     mode = modes[i];
+
 
     // if (mode in data[season]) {
     data_ = data[season][mode];

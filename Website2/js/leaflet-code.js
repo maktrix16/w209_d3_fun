@@ -25,7 +25,7 @@ $('#tbl').on({
 
 
 //main function for populating map objects
-function create_map (data, new_map, transports){
+function create_map (data, all_data, new_map, transports){
   //position map to center of Beijing
   // console.log(data.length);
   // console.log(data);
