@@ -4,7 +4,7 @@
 var modes = ['walk', 'bike', 'car', 'taxi', 'bus', 'subway', 'all']; 
 
 // var seasons = ['2008-2', '2008-3', '2008-4', '2009-1', '2009-2', '2009-3'];
-var seasons = ['2009-1', '2009-2', '2009-3', '2008-4'];
+var seasons = ['2009-2', '2008-2', '2008-3', '2008-4'];
 var mode_colors = {'walk': '#fbb4ae', 'bike': '#b3cde3', 'car': '#ccebc5', 'taxi': '#decbe4', 'bus': '#fed9a6', 'subway': '#ffffcc'};
 var season_index = 0;
 display();
@@ -71,7 +71,7 @@ function update() {
   }
 
   display();
-  plot_xy(data_xy[seasons[season_index]]); //REMOVE LATER
+  // plot_xy(data_xy[seasons[season_index]]); //REMOVE LATER
 
 // create_map(data_xy[seasons[season_index]]);
   create_map(data_xy2[seasons[season_index]], false, modes);
@@ -89,7 +89,9 @@ function display() {
   var season = seasons[season_index];
   paths_count = 0
   for (var mode in data[season]) {
-    paths_count += data[season][mode]['paths'];
+    if (mode != 'all') {
+      paths_count += data[season][mode]['paths'];
+    }
   }
 
   for (var i in modes) {
@@ -111,11 +113,11 @@ function display() {
 
     if (mode != 'all') {
       //arthur changes START
-      html = '<tr class="row-mode" id=' + mode + '><td> <i class="fa fa-circle" style="color:' + mode_colors[mode] + '"></i> ' + capitalize(mode) + '</td>';
+      html = '<tr class="row-mode" id=' + mode + '><td> <i class="fa fa-minus" style="color:' + mode_colors[mode] + '"></i> ' + capitalize(mode) + '</td>';
       // html = '<tr><td> <i class="fa fa-circle" style="color:' + mode_colors[mode] + '"></i> ' + capitalize(mode) + '</td>';
       // arthur changes END
 
-      html += '<td><span style="font-size: x-small" data-toggle="tooltip" title="' + (path_pct).toFixed(0) + '% of paths">' + data_['paths'] + '</span><div class="chart"><div style="width: ' + (.3 * path_pct).toFixed(0) + 'px"></div></div></td>';
+      html += '<td><span style="font-size: x-small" data-toggle="tooltip" title="' + (100 * path_pct / paths_count).toFixed(0) + '% of paths">' + data_['paths'] + '</span><div class="chart"><div style="width: ' + (.2 * path_pct).toFixed(0) + 'px"></div></div></td>';
       html += '<td style="text-align:right"><span data-toggle="tooltip" title="Total: ' + (data_['distance'] / 1000).toFixed(0) + ' km">' + avg_dist + '</span></td>';
       html += '<td style="text-align:right"><span data-toggle="tooltip" title="Total: ' + (data_['duration']).toFixed(0) + ' mins">' + avg_dur + '</span></td><td><span id="sparkline' + i + '"></span></td></tr>';
       $("#tbl tbody").append(html);
