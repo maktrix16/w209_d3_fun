@@ -163,7 +163,7 @@ function display() {
                       });
     }
     else {
-      html = '<tr style="background-color: #ccebc5; font-weight: bold"><td> <i class="fa fa-circle" style="color: #ccebc5"></i> All</td><td></td>';
+      html = '<tr style="background-color: #ccebc5; font-weight: bold"><td> <i class="fa fa-circle" style="color: #ccebc5"></i> All</td><td>' + paths_count + '</td>';
       html += '<td style="text-align:right"><span data-toggle="tooltip" title="Total: ' + (data_['distance'] / 1000).toFixed(0) + ' km">' + avg_dist + '</span></td>';
       html += '<td style="text-align:right"><span data-toggle="tooltip" title="Total: ' + (data_['duration']).toFixed(0) + ' mins">' + avg_dur + '</span></td><td><span id="sparkline' + i + '"></span></td></tr>';
       $("#tbl tbody").append(html);
