@@ -12,15 +12,15 @@ display();
 
 
 // create_map(data_xy[seasons[season_index]]);
-create_map(data_xy2[seasons[season_index]], true, true, modes);
+create_map(data_xy2[seasons[season_index]], true, modes);
 
 function capitalize(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 function next() {
-  if (season_index >= 2) {
-    season_index = 3;
+  if (season_index >= 3) {
+    season_index = 4;
     $("#btn_fwd").prop('disabled', true);
   }
   else{
@@ -32,7 +32,7 @@ function next() {
   // plot_xy(data_xy[seasons[season_index]]); //REMOVE LATER
 
 // create_map(data_xy[seasons[season_index]]);
-  create_map(data_xy2[seasons[season_index]], false, false, modes);
+  create_map(data_xy2[seasons[season_index]], false, modes);
 
 }
 
@@ -50,14 +50,14 @@ function back() {
   // plot_xy(data_xy[seasons[season_index]]); //REMOVE LATER
 
 // create_map(data_xy[seasons[season_index]]);
-  create_map(data_xy2[seasons[season_index]], false, false, modes);
+  create_map(data_xy2[seasons[season_index]], false, modes);
 
 }
 
 function update() {
   season_index = parseInt($('input[name="dropdown1"]:checked').val());
   
-  if (season_index >= 3) {
+  if (season_index >= 4) {
     $("#btn_fwd").prop('disabled', true);
     $("#btn_back").prop('disabled', false);
   }
@@ -74,7 +74,7 @@ function update() {
   // plot_xy(data_xy[seasons[season_index]]); //REMOVE LATER
 
 // create_map(data_xy[seasons[season_index]]);
-  create_map(data_xy2[seasons[season_index]], false, false, modes);
+  create_map(data_xy2[seasons[season_index]], false, modes);
 
 }
 
